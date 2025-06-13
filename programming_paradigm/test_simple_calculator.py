@@ -8,8 +8,8 @@ class TestSimpleCalculator(unittest.TestCase):
         """Set up the calculator before each test."""
         self.calc = SimpleCalculator()
 
-    def test_add(self):
-        """Test addition of numbers."""
+    def test_addition(self):
+        """Test the addition method."""
         self.assertEqual(self.calc.add(2, 3), 5)
         self.assertEqual(self.calc.add(-2, 3), 1)
         self.assertEqual(self.calc.add(-2, -3), -5)
