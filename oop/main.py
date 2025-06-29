@@ -2,19 +2,25 @@ from book_class import Book
 from library_system import Book as BaseBook, EBook, PrintBook, Library
 from polymorphism_demo import Rectangle, Circle
 from class_static_methods_demo import Calculator
+import time
 
 def test_magic_methods():
-    print("=== Testing Magic Methods (Book Class) ===")
+    print("\n===== 🧙 Magic Methods Test (Book Class) =====")
     my_book = Book("1984", "George Orwell", 1949)
-    print(my_book)               # __str__
-    print(repr(my_book))         # __repr__
-    del my_book                  # __del__ will be triggered
-    print()
+
+    print(my_book)         # __str__
+    print(repr(my_book))   # __repr__
+
+    del my_book            # Triggers __del__
+    # Give time for __del__ message to appear in some environments
+    time.sleep(0.1)
+    print("✅ Magic methods tested.\n")
 
 
 def test_inheritance_and_composition():
-    print("=== Testing Inheritance and Composition (Library System) ===")
+    print("\n===== 🧬 Inheritance & 🧱 Composition Test (Library System) =====")
     my_library = Library()
+
     classic = BaseBook("Pride and Prejudice", "Jane Austen")
     digital = EBook("Snow Crash", "Neal Stephenson", 500)
     paper = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
@@ -24,35 +30,37 @@ def test_inheritance_and_composition():
     my_library.add_book(paper)
 
     my_library.list_books()
-    print()
+    print("✅ Library system tested.\n")
 
 
 def test_polymorphism():
-    print("=== Testing Polymorphism and Method Overriding ===")
+    print("\n===== 🔁 Polymorphism & Method Overriding Test =====")
     shapes = [
         Rectangle(10, 5),
         Circle(7)
     ]
     for shape in shapes:
         print(f"The area of the {shape.__class__.__name__} is: {shape.area()}")
-    print()
+    print("✅ Shape area methods tested.\n")
 
 
 def test_class_and_static_methods():
-    print("=== Testing Class and Static Methods (Calculator) ===")
+    print("\n===== 🧮 Class vs Static Methods Test (Calculator) =====")
     sum_result = Calculator.add(10, 5)
     print(f"The sum is: {sum_result}")
 
     product_result = Calculator.multiply(10, 5)
     print(f"The product is: {product_result}")
-    print()
+    print("✅ Calculator methods tested.\n")
 
 
 def main():
+    print("🎯 Running All OOP Tests for ALX Python Project...\n")
     test_magic_methods()
     test_inheritance_and_composition()
     test_polymorphism()
     test_class_and_static_methods()
+    print("✅ All tests completed successfully!")
 
 
 if __name__ == "__main__":
